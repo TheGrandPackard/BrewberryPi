@@ -1,0 +1,40 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>BrewberryPi</h1>
+            <p>This is the dashboard for the fermentation system. Configure the zones and other settings <a href="/config">here</a></p>
+        </div>
+				
+				<h2>Temperature Probes</h2>
+				<ul>
+				    <% temp_probes.forEach(function(probe) { %>
+				        <li><%= probe.name %> - <%= probe.temp %>° F</li>
+				    <% }); %>
+				</ul>
+				
+				<h2>Power Statuses</h2>
+				<ul>
+				    <% power_statuses.forEach(function(power) { %>
+				        <li><%= power.name %> - <%= power.status %></li>
+				    <% }); %>
+				</ul>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>
